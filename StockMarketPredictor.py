@@ -388,7 +388,7 @@ def plot_history(history):
         plt.legend()
     
     plt.tight_layout()
-    plt.show()
+    # plt.show()
 
 def evaluate_model(model, X_test, y_test):
     # Evaluate the model
@@ -501,7 +501,7 @@ def plot_predictions(df, y_test, y_pred, test_size=0.15):
     plt.ylabel('Direction (1=Up, 0=Down)')
     plt.title('Actual vs Predicted Stock Price Directions')
     plt.legend()
-    plt.show()
+    # plt.show()
 
 def display_trading_signals(test_df_slice, predicted_directions):
     """
@@ -560,7 +560,7 @@ def display_trading_signals(test_df_slice, predicted_directions):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.show()
+    # plt.show()
 
     return signals_df
 
@@ -606,7 +606,7 @@ def plot_feature_importance(model, X_test, y_test, feature_names):
     plt.title("Feature Importance")
     plt.xlabel("Mean absolute difference in predictions when feature is zeroed")
     plt.tight_layout()
-    plt.show()
+    # plt.show()
     
     # Print importance values
     print("\nFeature Importance:")
@@ -625,7 +625,7 @@ def plot_rf_feature_importance(rf_model, feature_names):
     plt.bar(range(len(importances)), importances[indices], align='center')
     plt.xticks(range(len(importances)), [feature_names[i] for i in indices], rotation=90)
     plt.tight_layout()
-    plt.show()
+    # plt.show()
     
     # Print top 15 features
     print("\nTop 15 features by importance:")
@@ -714,26 +714,26 @@ def main(filename):
     return nn_model, rf_model
 
 # Example usage:
-if __name__ == "__main__":
-    # Create models directory if it doesn't exist
-    os.makedirs('models', exist_ok=True)
-    
-    
-    # Choose one of the stock files to run
-    stock_file = 'data/NVDA.csv'  # Change to 'NVDA.csv' or 'TSLA.csv' to test other stocks
-    
-    file_path = os.path.join( stock_file)
-    print(f"\nRunning prediction model for {stock_file}\n")
-    nn_model, rf_model = main(file_path)
-    
-    # Uncomment these lines to run all stocks
-    """
-    models = {}
-    for stock_file in ['AAPL.csv', 'NVDA.csv', 'TSLA.csv']:
-        file_path = os.path.join(data_dir, stock_file)
-        print(f"\n\n{'='*50}")
-        print(f"Running prediction model for {stock_file}")
-        print(f"{'='*50}\n")
-        nn_model, rf_model = main(file_path)
-        models[stock_file] = {'nn': nn_model, 'rf': rf_model}
-    """
+# if __name__ == "__main__":
+#     # Create models directory if it doesn't exist
+#     os.makedirs('models', exist_ok=True)
+#     
+#     
+#     # Choose one of the stock files to run
+#     stock_file = 'data/NVDA.csv'  # Change to 'NVDA.csv' or 'TSLA.csv' to test other stocks
+#     
+#     file_path = os.path.join( stock_file)
+#     print(f"\nRunning prediction model for {stock_file}\n")
+#     nn_model, rf_model = main(file_path)
+#     
+#     # Uncomment these lines to run all stocks
+#     """
+#     models = {}
+#     for stock_file in ['AAPL.csv', 'NVDA.csv', 'TSLA.csv']:
+#         file_path = os.path.join(data_dir, stock_file)
+#         print(f"\n\n{'='*50}")
+#         print(f"Running prediction model for {stock_file}")
+#         print(f"{'='*50}\n")
+#         nn_model, rf_model = main(file_path)
+#         models[stock_file] = {'nn': nn_model, 'rf': rf_model}
+#     """

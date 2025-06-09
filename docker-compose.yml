@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  stock-predictor-pipeline: # A descriptive service name
+    build: . # Tells Docker Compose to build the image using the Dockerfile in the current directory
+    container_name: stock-ai-pipeline-app # A friendly name for your running container
+    volumes:
+      # Mounts your local 'data' folder to '/app/data' inside the container.
+      # Collected CSVs will appear here.
+      - ./data:/app/data
+      # Mounts your local 'models' folder to '/app/models' inside the container.
+      # Trained models will appear here.
+      - ./models:/app/models
+      # Mounts your local 'logs' folder to '/app/logs' inside the container.
+      # Plots (if saved) or custom logs will appear here.
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1 # Ensures Python output appears immediately in your terminal
+    restart: "no" # This is a batch job, so it should not restart automatically.
+    # ports:
+    #   - "8000:8000" # Keep commented out, as it's not a web server.
