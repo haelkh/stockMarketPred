@@ -231,8 +231,8 @@ def create_train_test_splits(X, y, test_size=0.2):
     return X_train, X_test, y_train, y_test
 
 # Hyperparameters for Stock Market Prediction
-EPOCHS = 1000
-BATCH_SIZE = 32              # smaller batches often work better for time-series
+EPOCHS = 200
+BATCH_SIZE = 16              # smaller batches often work better for time-series
 DROPOUT_RATE = 0.2           # lower dropout helps retain signal in volatile data
 L2_REG = 1e-5                # gentle regularization to avoid underfitting
 INIT_LR = 1e-3               # good starting point for learning
@@ -718,12 +718,11 @@ if __name__ == "__main__":
     # Create models directory if it doesn't exist
     os.makedirs('models', exist_ok=True)
     
-    data_dir = r'C:\Users\Hassan Elkhatib\Desktop\SE-training\stock\StockPredictorML\data'
     
     # Choose one of the stock files to run
-    stock_file = 'NVDA.csv'  # Change to 'NVDA.csv' or 'TSLA.csv' to test other stocks
+    stock_file = 'data/NVDA.csv'  # Change to 'NVDA.csv' or 'TSLA.csv' to test other stocks
     
-    file_path = os.path.join(data_dir, stock_file)
+    file_path = os.path.join( stock_file)
     print(f"\nRunning prediction model for {stock_file}\n")
     nn_model, rf_model = main(file_path)
     
