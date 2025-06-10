@@ -12,7 +12,7 @@ import time
 
 # Configuration
 TICKERS = ["AAPL", "TSLA", "NVDA"]
-START_DATE = "2025-05-01"  # 5+ years of data for better training
+START_DATE = "2020-06-01"  # 5+ years of data for better training
 END_DATE = None  # Defaults to today
 DATA_DIR = "data"
 
