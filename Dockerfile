@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9-slim-buster # Using slim-buster for smaller image size
+FROM python:3.9-slim-buster
 
 # Set the working directory in the container
 WORKDIR /app
@@ -25,4 +25,4 @@ RUN mkdir -p data models logs
 CMD ["python", "run_all.py"]
 
 # No need to expose ports for a batch processing script
-# EXPOSE 8000 
+# EXPOSE 8000
